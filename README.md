@@ -5,6 +5,8 @@ First step to get setup is to run to install the project dependencies:
 npm install
 
 Afterwards copy the config.dist.js file to config.js in the root and modify the `environment` to your liking (dev or production).
+`dev` will load the data from tests/files/transaction_history.json
+`production` will load the data from https://shakepay.github.io/programming-exercise/web/transaction_history.json
 
 To start the server simply run the following command:
 node server
