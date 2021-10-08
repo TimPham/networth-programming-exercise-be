@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TimPham/networth-programming-exercise-be/issues"
   },
-  "homepage": "https://github.com/TimPham/networth-programming-exercise-be#readme"
+  "homepage": "https://github.com/TimPham/networth-programming-exercise-be#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.0"
+  }
 }
