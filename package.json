@@ -1,0 +1,19 @@
+{
+  "name": "networth-programming-exercise-be",
+  "version": "1.0.0",
+  "description": "API built with HAPI running on NodeJS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimPham/networth-programming-exercise-be.git"
+  },
+  "author": "Timothy Pham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TimPham/networth-programming-exercise-be/issues"
+  },
+  "homepage": "https://github.com/TimPham/networth-programming-exercise-be#readme"
+}

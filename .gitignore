@@ -105,3 +105,6 @@ dist
 
 # Ignore WebStorm files
 .idea
+
+# Ignore config file
+config.js
