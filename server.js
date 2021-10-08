@@ -65,7 +65,7 @@ const startHapiServer = async () => {
     hapiServer.route({
         method: 'GET',
         path: '/',
-        handler: (request, h) => {
+        handler: async (request, h) => {
             // TODO: Retrieve live Bitcoin and Ethereum prices
             try {
                 let transactionData
@@ -73,16 +73,19 @@ const startHapiServer = async () => {
                 // Determine if this is a test environment or production (default is assumed production)
                 let sourceName = 'live'
                 if (typeof serverConfig.environment !== 'undefined' && serverConfig.environment === 'dev') {
-                    transactionData = Balances.processLocal(serverConfig.transactionLocalPath)
+                    transactionData = await Balances.processLocal(serverConfig.transactionLocalPath)
                     sourceName = 'local'
                 } else {
-                    transactionData = Balances.processRemoteFeed(serverConfig.transactionFeedURL)
+                    transactionData = await Balances.processRemoteFeed(serverConfig.transactionFeedURL)
                 }
 
                 // Calculate Bitcoin and Ethereum balances and calculate total balance in CAD, BTC and ETH
                 return Object.assign(
                     transactionData,
                     {
+                        'current_btc_cad_balance': transactionData.current_balance_btc * BTC_CAD_RATE,
+                        'current_cad_balance': transactionData.current_balance_cad,
+                        'current_eth_cad_balance': transactionData.current_balance_eth * ETH_CAD_RATE,
                         source: sourceName,
                     }
                 )
